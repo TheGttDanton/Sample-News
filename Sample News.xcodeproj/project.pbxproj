@@ -21,6 +21,8 @@
 		04CB362F22ED871800513EB5 /* RequestGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB362E22ED871800513EB5 /* RequestGenerator.swift */; };
 		04CB363222EDA54600513EB5 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB363122EDA54600513EB5 /* ImageDownloader.swift */; };
 		04CB363422EDA56200513EB5 /* ImageOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB363322EDA56200513EB5 /* ImageOperation.swift */; };
+		04CB363722EDC41800513EB5 /* NewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB363622EDC41800513EB5 /* NewsDetailViewController.swift */; };
+		04CB363B22EE1E1800513EB5 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB363A22EE1E1800513EB5 /* Animator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		04CB362E22ED871800513EB5 /* RequestGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestGenerator.swift; sourceTree = "<group>"; };
 		04CB363122EDA54600513EB5 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		04CB363322EDA56200513EB5 /* ImageOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageOperation.swift; sourceTree = "<group>"; };
+		04CB363622EDC41800513EB5 /* NewsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailViewController.swift; sourceTree = "<group>"; };
+		04CB363A22EE1E1800513EB5 /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +121,7 @@
 		04CB362022ED6CA600513EB5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				04CB363522EDC3FB00513EB5 /* NewsDetailViewController */,
 				04CB362122ED6CBB00513EB5 /* NewsViewController */,
 			);
 			path = Controller;
@@ -158,6 +163,15 @@
 				04CB363322EDA56200513EB5 /* ImageOperation.swift */,
 			);
 			path = ImageDownloader;
+			sourceTree = "<group>";
+		};
+		04CB363522EDC3FB00513EB5 /* NewsDetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				04CB363622EDC41800513EB5 /* NewsDetailViewController.swift */,
+				04CB363A22EE1E1800513EB5 /* Animator.swift */,
+			);
+			path = NewsDetailViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,10 +276,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04CB363B22EE1E1800513EB5 /* Animator.swift in Sources */,
 				04CB362422ED6CE900513EB5 /* NewsModel.swift in Sources */,
 				04CB362C22ED6E9900513EB5 /* NewsTableViewCell.swift in Sources */,
 				04CB363222EDA54600513EB5 /* ImageDownloader.swift in Sources */,
 				04CB361D22EB718E00513EB5 /* NetworkManager.swift in Sources */,
+				04CB363722EDC41800513EB5 /* NewsDetailViewController.swift in Sources */,
 				04CB361F22EC7A1800513EB5 /* NewsViewModel.swift in Sources */,
 				04CB362922ED6D6600513EB5 /* NewsViewController.swift in Sources */,
 				04CB362F22ED871800513EB5 /* RequestGenerator.swift in Sources */,
