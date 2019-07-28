@@ -57,7 +57,26 @@ extension NewsViewController : UITableViewDataSource , UITableViewDelegate{
         guard let cell = tableView.dequeueReusableCell(withIdentifier: NewsTableViewCell.identifier) as? NewsTableViewCell else {
             fatalError("Not able to load cell")
         }
+        let article = viewModel.newsData[indexPath.row]
+        if let imageUrl = article.urlToImage {
+            ImageDownloader.handler.addTask(imageUrlString: imageUrl) { (image, imageUrlString) in
+                DispatchQueue.main.async {
+                    if imageUrl == imageUrlString {
+                        cell.newsImage.image = image
+                    }
+                }
+            }
+        }
+        cell.titleLabel.text = article.title
+        cell.sourceLabel.text = article.source?.name
+        cell.dateLabel.text = viewModel.convertDateString(article.publishedAt)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == viewModel.newsData.count - 1 {
+            viewModel.getPaginatedData()
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
