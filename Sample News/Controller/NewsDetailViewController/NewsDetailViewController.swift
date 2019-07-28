@@ -7,24 +7,39 @@
 //
 
 import UIKit
+import WebKit
 
 class NewsDetailViewController: UIViewController {
-
+    var newsTitle : String?
+    var source : String?
+    var date : String?
+    var image : UIImage? {
+        didSet {
+            self.newsImageView.image = image
+        }
+    }
+    var content : String?
+    
+    @IBOutlet weak var contentTextView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setUpUI()
+    }
+    func setUpUI() {
+        sourceLabel.text = source
+        titleLabel.text = newsTitle
+        dateLabel.text = date
+        contentTextView.text = content
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBOutlet private weak var newsImageView: UIImageView!
+    @IBOutlet private weak var sourceLabel: UILabel!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var dateLabel: UILabel!
+    
+    
+    @IBAction func backBtnClicked(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
-    */
-
 }
