@@ -14,6 +14,7 @@ class NewsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        setUpViewModel()
     }
     
     func setupTableView() {
@@ -22,6 +23,15 @@ class NewsViewController: UIViewController {
         tableView.register(UINib(nibName: NewsTableViewCell.identifier, bundle: .main), forCellReuseIdentifier: NewsTableViewCell.identifier)
         tableView.dataSource = self
         tableView.delegate = self
+    }
+    
+    func setUpViewModel() {
+        viewModel.tableReloadClosure = {[weak self] in
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
+        }
+        viewModel.getData()
     }
     
 
@@ -40,7 +50,7 @@ class NewsViewController: UIViewController {
 
 extension NewsViewController : UITableViewDataSource , UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5//self.viewModel.newsData.count
+        return self.viewModel.newsData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
