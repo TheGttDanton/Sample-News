@@ -18,8 +18,7 @@ class NetworkManager {
         return session
     }()
     
-    func getData<T : Codable>(urlToHit : String , completionHandler : (success : Bool , response : T)) {
-        //let url = URL(string: "https://newsapi.org/v2/top-headlines?country=in&apiKey=65b5575751174db590bf9484d621ba8f")!
+    func getData<T : Codable>(urlToHit : String , completionHandler : @escaping (Bool , T?) -> ()) {
         guard let url = URL(string: urlToHit) else {
             return
         }
@@ -28,14 +27,16 @@ class NetworkManager {
             print(data , response , error)
             if let _ = error  {
                 print("Error is \(error)")
+                completionHandler(false,nil)
                 return
             }
             do {
                 let decoder = JSONDecoder()
                 let json = try decoder.decode(T.self, from: data!)
-                print(json)
+                completionHandler(true,json)
             } catch {
                 print("Failed to load: \(error)")
+                completionHandler(false,nil)
             }
         }
         dataTask.resume()
